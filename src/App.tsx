@@ -1,5 +1,11 @@
-import "./App.css";
+import { AppRoutes } from "./routes/AppRoutes";
+import { GlobalStyles } from "./styles/GlobalSyles";
 
 export function App() {
-  return <></>;
+  return (
+    <>
+      <GlobalStyles />
+      <AppRoutes />
+    </>
+  );
 }
