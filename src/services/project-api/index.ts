@@ -18,8 +18,6 @@ interface User {
 
 export async function SignIn(email: string, password: string): Promise<ResponseUserRequestApi> {
     try{
-        console.log('entrei credenciais sendo validadas: ', {email, password})
-
         const response = await projectsApi.post('/login', {email: email, password: password})
 
         const { success, code, message, data } = response.data;

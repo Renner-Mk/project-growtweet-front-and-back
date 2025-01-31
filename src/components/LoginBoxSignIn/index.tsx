@@ -18,7 +18,7 @@ export function LoginBoxSignIn() {
 
     if (resultado.user) {
       localStorage.setItem('userLogged', JSON.stringify(resultado.user))
-      navigate('/profile')
+      navigate('/')
     }
 
     alert(resultado.message || 'erro inesperado')
@@ -27,11 +27,21 @@ export function LoginBoxSignIn() {
   return (
     <BoxSignIn>
       <FormSignIn onSubmit={signIn}>
-        <label htmlFor="email">Email: </label>
-        <input type="text" id="email" name="email" required />
+        <div className="field">
+          <input type="text" id="email" name="email" placeholder=" " required />
+          <label htmlFor="email">Email</label>
+        </div>
 
-        <label htmlFor="">Senha: </label>
-        <input type="password" name="password" required />
+        <div className="field">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder=" "
+            required
+          />
+          <label htmlFor="password">Senha</label>
+        </div>
 
         <button type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'Aguarde...' : 'Conectar-se'}
