@@ -1,7 +1,8 @@
 import { Outlet } from 'react-router'
 import { DefaultContainer, Feed, News } from './styles'
 import { Navegation } from '../../components/Navegation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { ModalTweet } from '../../components/ModalTweet'
 
 export interface User {
   id: string
@@ -24,10 +25,12 @@ const defaultUser: User = {
 export function DefaultLayout() {
   const [userLogged, setUserLogged] = useState<User>(defaultUser)
 
-  const user = localStorage.getItem('userLogged')
-  if (user) {
-    setUserLogged(JSON.parse(user) as User)
-  }
+  useEffect(() => {
+    const user = localStorage.getItem('userLogged')
+    if (user) {
+      setUserLogged(JSON.parse(user) as User)
+    }
+  }, [])
 
   return (
     <>
@@ -53,6 +56,7 @@ export function DefaultLayout() {
             <li>Assunto sobre Filmes e Cinema</li>
           </ul>
         </News>
+        <ModalTweet />
       </DefaultContainer>
     </>
   )

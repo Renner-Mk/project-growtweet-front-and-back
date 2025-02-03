@@ -9,7 +9,6 @@ export const DefaultContainer = styled.div`
 
 export const Feed = styled.main`
     width: 50vw;
-    padding: 15px;
 `
 
 export const News = styled.div`
@@ -36,8 +35,4 @@ export const News = styled.div`
         font-size: 13px;
         letter-spacing: 1px;
     }
-`
-
-export const TweetsButton = styled.button`
-
 `

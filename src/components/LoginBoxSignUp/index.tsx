@@ -33,7 +33,12 @@ export function LoginBoxSignUp() {
         <input type="text" id="usernameSignUp" name="usernameSignUp" required />
 
         <label htmlFor="passwordSignUp">Senha: </label>
-        <input type="passwordSignUp" name="passwordSignUp" required />
+        <input
+          type="passwordSignUp"
+          id="passwordSignUp"
+          name="passwordSignUp"
+          required
+        />
 
         <button className="register" type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'Verificando dados...' : 'Registrar-se'}

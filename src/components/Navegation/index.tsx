@@ -1,23 +1,31 @@
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import {
+  ButtonLogout,
   FooterNav,
   Logo,
   Nav,
   NavegationContainer,
   Profile,
   ProfileImg,
+  TweetsButton,
 } from './styles'
 import backgroundImg from '../../assets/img/logo2.png'
-import { TweetsButton } from '../../layouts/DefaultLayout/styles'
 import { User } from '../../layouts/DefaultLayout'
+import { CiLogout } from 'react-icons/ci'
+import { RiHome9Fill } from 'react-icons/ri'
+import { PiHashBold } from 'react-icons/pi'
+import { CiUser } from 'react-icons/ci'
 
 interface UserProps {
   user: User
 }
 
 export function Navegation({ user }: UserProps) {
-  const loggout = () => {
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
     localStorage.removeItem('userLogged')
+    navigate('login')
   }
 
   return (
@@ -25,17 +33,20 @@ export function Navegation({ user }: UserProps) {
       <Nav>
         <Logo src={backgroundImg}></Logo>
         <div>
-          <Link className="link" to={'/'}>
+          <Link className="link top" to={'/'}>
+            <RiHome9Fill className="icon" />
             Página Inicial
           </Link>
         </div>
         <div>
-          <Link className="link" to={'/explore'}>
+          <Link className="link mid" to={'/explore'}>
+            <PiHashBold className="icon" />
             Explorar
           </Link>
         </div>
         <div>
-          <Link className="link" to={'/profile'}>
+          <Link className="link botton" to={'/profile'}>
+            <CiUser className="icon" />
             Perfil
           </Link>
         </div>
@@ -45,14 +56,17 @@ export function Navegation({ user }: UserProps) {
       <FooterNav>
         <Profile>
           <ProfileImg src={user.urlImg}></ProfileImg>
-          <div>
-            <p>{user.name}</p>
-            <p>@{user.username}</p>
+          <div className="profile-txt">
+            <p className="name">{user.name}</p>
+            <p className="username">@{user.username}</p>
           </div>
         </Profile>
-        <Link className="sair" onClick={loggout} to={'login'}>
-          Sair
-        </Link>
+        <ButtonLogout className="Btn-sair" onClick={handleLogout}>
+          <div className="icon-logout">
+            <CiLogout className="logout" />
+          </div>
+          <div className="text">Sair</div>
+        </ButtonLogout>
       </FooterNav>
     </NavegationContainer>
   )
