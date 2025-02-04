@@ -7,8 +7,12 @@ export const Container = styled.div`
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
-    border-radius: 10px;
+    border-radius: 30px;
     border: 1px solid #ccc;
+    overflow: hidden;
+
+    width: 850px;
+    height: 550px;
 `
 
 export const Info = styled.div`
