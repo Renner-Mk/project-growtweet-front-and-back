@@ -1,11 +1,15 @@
 import styled from "styled-components"
 
 export const BoxSignUp = styled.div`
-    background-color: #ccc;
     width:50%;
     padding: 15px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    position:relative;
+    z-index: -1;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
 
 `
 
@@ -33,6 +37,28 @@ export const FormSignUp = styled.form`
     .register:disabled{
         background-color: #ccc;
         cursor: default;
+    }
+
+    label{
+        color: #797978;
+        position: absolute;
+        left: 5px;
+        top: 6px;
+        background-color: white;
+        padding: 0 5px;
+        transition: transform .3s ease, color .3s ease, font-size .2s ease;
+        pointer-events: none;
+    }
+
+    input:focus+label,
+    input:not(:placeholder-shown) + label {
+        transform: translateY(-14px);
+        font-size: 12px;
+    }
+
+    .field{
+        position: relative;
+        margin-bottom: 25px;
     }
 
 `

@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display:flex;
-    width: 60%;
     position: absolute;
     top: 50%;
     right: 50%;
@@ -10,39 +9,72 @@ export const Container = styled.div`
     border-radius: 30px;
     border: 1px solid #ccc;
     overflow: hidden;
-
     width: 850px;
     height: 550px;
 `
 
 export const Info = styled.div`
-    background-color: #00a8fe;
-    width: 50%;
-    height:100%;
     position: absolute;
-    top: 0;
-    padding: 15px;
+    width: 100%;
+    height:100%;
+
+    &::before{
+        content:'';
+        position: absolute;
+        left: -250%;
+        width: 300%;
+        height: 100%;
+        background: #00a8fe;
+        border-radius: 150px;
+        z-index: 2;
+        transition: 1.8s ease-in-out;
+    }
+
+    &.register:before{ left: 50%}
+
+    .toggle-painel{
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        transition: .6s ease-in-out;
+        text-align: center;
+    }
+
+    .toggle-painel.toggle-left{
+        left: 0;
+        transition-delay: 1.2s;
+    }
+
+    &.register .toggle-painel.toggle-left{
+        left: -50%;
+        transition-delay: .6s;
+    }
+
+    .toggle-painel.toggle-right{
+        right: 0;
+        transition-delay: 1.2s;
+    }
+
+    &.login .toggle-painel.toggle-right{
+        right: -50%;
+        transition-delay: .6s;
+    }
 
     button{
-        width:150px;
         padding: 15px;
-    }
-    
-    &.login{
-        left:0;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-    }
-    
-    &.register{
-        right: 0;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
+        margin-top: 20px;
+        background-color: transparent;
+        color: white;
+        border: none;
+        outline: 1px solid white;
     }
 
-    h1{
-        font-size:48px;
-    }
 `
 
 

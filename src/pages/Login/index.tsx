@@ -29,7 +29,7 @@ export function Login() {
                 setLogin(!login)
               }}
             >
-              {login ? <p>Cadastre-se</p> : <p>Login</p>}
+              Cadastre-se
             </button>
           </div>
           <div className="toggle-painel toggle-right">
@@ -47,7 +47,7 @@ export function Login() {
                 setLogin(!login)
               }}
             >
-              {login ? <p>Cadastre-se</p> : <p>Login</p>}
+              Login
             </button>
           </div>
         </Info>

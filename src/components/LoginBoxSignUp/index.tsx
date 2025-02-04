@@ -23,22 +23,35 @@ export function LoginBoxSignUp() {
   return (
     <BoxSignUp>
       <FormSignUp onSubmit={signUp}>
-        <label htmlFor="nameSignUp">Nome: </label>
-        <input type="text" id="nameSignUp" name="nameSignUp" required />
+        <div className="field">
+          <input type="text" id="nameSignUp" name="nameSignUp" required />
+          <label htmlFor="nameSignUp">Nome: </label>
+        </div>
 
-        <label htmlFor="emailSignUp">Email: </label>
-        <input type="text" id="emailSignUp" name="emailSignUp" required />
+        <div className="field">
+          <input type="text" id="emailSignUp" name="emailSignUp" required />
+          <label htmlFor="emailSignUp">Email: </label>
+        </div>
 
-        <label htmlFor="usernameSignUp">Nome de usuário: </label>
-        <input type="text" id="usernameSignUp" name="usernameSignUp" required />
+        <div className="field">
+          <input
+            type="text"
+            id="usernameSignUp"
+            name="usernameSignUp"
+            required
+          />
+          <label htmlFor="usernameSignUp">Nome de usuário: </label>
+        </div>
 
-        <label htmlFor="passwordSignUp">Senha: </label>
-        <input
-          type="passwordSignUp"
-          id="passwordSignUp"
-          name="passwordSignUp"
-          required
-        />
+        <div className="field">
+          <input
+            type="passwordSignUp"
+            id="passwordSignUp"
+            name="passwordSignUp"
+            required
+          />
+          <label htmlFor="passwordSignUp">Senha: </label>
+        </div>
 
         <button className="register" type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'Verificando dados...' : 'Registrar-se'}
