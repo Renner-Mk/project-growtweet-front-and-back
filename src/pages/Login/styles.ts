@@ -11,6 +11,32 @@ export const Container = styled.div`
     overflow: hidden;
     width: 850px;
     height: 550px;
+
+    .icon-box{
+        background-color: #ccc;
+        margin-bottom: 25px;
+        padding: 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+
+    &.register .toggle-box:before{ left: 50%}
+
+
+    &.register .toggle-box .toggle-painel.toggle-left{
+        left: -50%;
+        transition-delay: .6s;
+    }
+
+    &.login .toggle-box .toggle-painel.toggle-right{
+        right: -50%;
+        transition-delay: .6s;
+    }
+
 `
 
 export const Info = styled.div`
@@ -30,8 +56,6 @@ export const Info = styled.div`
         transition: 1.8s ease-in-out;
     }
 
-    &.register:before{ left: 50%}
-
     .toggle-painel{
         position: absolute;
         width: 50%;
@@ -44,6 +68,7 @@ export const Info = styled.div`
         z-index: 2;
         transition: .6s ease-in-out;
         text-align: center;
+        padding: 5px 40px;
     }
 
     .toggle-painel.toggle-left{
@@ -51,29 +76,37 @@ export const Info = styled.div`
         transition-delay: 1.2s;
     }
 
-    &.register .toggle-painel.toggle-left{
-        left: -50%;
-        transition-delay: .6s;
-    }
-
     .toggle-painel.toggle-right{
         right: 0;
         transition-delay: 1.2s;
     }
 
-    &.login .toggle-painel.toggle-right{
-        right: -50%;
-        transition-delay: .6s;
-    }
-
     button{
+        width: 175px;
         padding: 15px;
-        margin-top: 20px;
+        margin-top: 30px;
         background-color: transparent;
         color: white;
         border: none;
         outline: 1px solid white;
+        border-radius: 10px;
+        font-size: 15px;
+        overflow: hidden;
     }
+
+    button:hover {
+        background-color: #0d8ae6;
+    }
+
+    h1{
+        font-size: 38px;
+    }
+
+    small{
+        margin-bottom: 30px;
+    }
+
+    
 
 `
 

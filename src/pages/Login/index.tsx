@@ -6,46 +6,42 @@ import { useState } from 'react'
 export function Login() {
   const [login, setLogin] = useState<boolean>(true)
 
-  const classe = login ? 'login toggle-box' : 'register toggle-box'
+  const classe = login ? 'login' : 'register'
 
   return (
     <>
-      <Container>
+      <Container className={classe}>
         <LoginBoxSignUp />
         <LoginBoxSignIn />
-        <Info className={classe}>
+        <Info className="toggle-box">
           <div className="toggle-painel toggle-left">
             <h1>GrowTwitter</h1>
-            <small>Trabalho final do bloco intermediário</small>
+            <small>Aplicação inspiradora do bloco intermediário</small>
             <p>
-              O Growtwitter é a plataforma definitiva para todos os apaixonados
-              por redes sociais que buscam uma experiência familiar e poderosa,
-              semelhante ao Twitter, mas com um toque único. Seja parte desta
-              comunidade que valoriza a liberdade de expressão, a conexão com
-              pessoas de todo o mundo e a disseminação de ideias.
+              Junte-se à comunidade GrowTwitter e conecte-se com o mundo.
+              Compartilhe ideias, descubra conteúdos e interaja com liberdade.
             </p>
             <button
               onClick={() => {
                 setLogin(!login)
               }}
+              disabled={!login}
             >
               Cadastre-se
             </button>
           </div>
           <div className="toggle-painel toggle-right">
             <h1>GrowTwitter</h1>
-            <small>Trabalho final do bloco intermediário</small>
+            <small>Aplicação inspiradora do bloco intermediário</small>
             <p>
-              O Growtwitter é a plataforma definitiva para todos os apaixonados
-              por redes sociais que buscam uma experiência familiar e poderosa,
-              semelhante ao Twitter, mas com um toque único. Seja parte desta
-              comunidade que valoriza a liberdade de expressão, a conexão com
-              pessoas de todo o mundo e a disseminação de ideias.
+              Acesse sua conta e continue compartilhando, explorando e se
+              conectando com o mundo
             </p>
             <button
               onClick={() => {
                 setLogin(!login)
               }}
+              disabled={login}
             >
               Login
             </button>

@@ -15,6 +15,8 @@ import { CiLogout } from 'react-icons/ci'
 import { RiHome9Fill } from 'react-icons/ri'
 import { PiHashBold } from 'react-icons/pi'
 import { CiUser } from 'react-icons/ci'
+import { useState } from 'react'
+import { ModalTweet } from '../ModalTweet'
 
 interface UserProps {
   user: User
@@ -22,6 +24,7 @@ interface UserProps {
 
 export function Navegation({ user }: UserProps) {
   const navigate = useNavigate()
+  const [isOpen, setIsOpen] = useState(false)
 
   const handleLogout = () => {
     localStorage.removeItem('userLogged')
@@ -51,8 +54,20 @@ export function Navegation({ user }: UserProps) {
           </Link>
         </div>
 
-        <TweetsButton>Tweetar</TweetsButton>
+        <TweetsButton
+          onClick={() => {
+            setIsOpen((prev) => !prev)
+          }}
+        >
+          Tweetar
+        </TweetsButton>
       </Nav>
+      {isOpen && (
+        <ModalTweet
+          isOpen={isOpen}
+          onClose={() => setIsOpen((prev) => !prev)}
+        />
+      )}
       <FooterNav>
         <Profile>
           <ProfileImg src={user.urlImg}></ProfileImg>

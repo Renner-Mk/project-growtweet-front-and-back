@@ -5,18 +5,32 @@ interface ResponseTweetRequestApi{
     success: boolean;
     code: number;
     message: string;
-    data?: Tweets[];
+    data?: ITweets[];
 }
 
-export interface Tweets{
-    id: string,
-    content: string,
-    type: string,
-    userId: string,
-    tweetOriginalId: string | null
+export interface IUser{
+    id: string;
+    name: string;
+    username: string;
+    urlImg: string;
 }
 
-export async function TweetsProfile(): Promise<ResponseTweetRequestApi>{
+export interface Like{
+    tweetId: string;
+    userId: string
+}
+
+export interface ITweets{
+    id: string;
+    content: string;
+    type: string;
+    userId: string;
+    tweetOriginalId: string | null;
+    like?: Like[];
+    user: IUser;
+}
+
+export async function TweetsFeed(): Promise<ResponseTweetRequestApi>{
     const userLogged = localStorage.getItem('userLogged')
 
     if (!userLogged){
@@ -26,10 +40,11 @@ export async function TweetsProfile(): Promise<ResponseTweetRequestApi>{
             message: "O usuário deve fazer login primeiro"
         }
     }
+
     try{
         const user = JSON.parse(userLogged)
 
-        const response = await projectsApi.get(`/user/${user.id}/profile`, {headers: {Authorization: user.token}})
+        const response = await projectsApi.get(`/user/${user.id}/feed`, {headers: {Authorization: user.token}})
 
         const { success, code, message, data } = response.data;
 

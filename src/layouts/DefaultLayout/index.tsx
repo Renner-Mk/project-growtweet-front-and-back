@@ -2,7 +2,6 @@ import { Outlet } from 'react-router'
 import { DefaultContainer, Feed, News } from './styles'
 import { Navegation } from '../../components/Navegation'
 import { useEffect, useState } from 'react'
-import { ModalTweet } from '../../components/ModalTweet'
 
 export interface User {
   id: string
@@ -56,7 +55,6 @@ export function DefaultLayout() {
             <li>Assunto sobre Filmes e Cinema</li>
           </ul>
         </News>
-        <ModalTweet />
       </DefaultContainer>
     </>
   )
